@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Custom colors for Anthem Infotech
+				anthem: {
+					purple: "#8B5CF6",
+					darkPurple: "#6E59A5",
+					dark: "#222222",
+					light: "#F1F1F1",
+				},
+				status: {
+					active: "#22C55E",
+					idle: "#F59E0B",
+					gone: "#DC2626",
+					requirements: "#8B5CF6",
+					quote: "#F97316",
+					approved: "#10B981",
+					progress: "#3B82F6",
+					submitted: "#6366F1", 
+					feedback: "#EC4899",
+					complete: "#14B8A6",
+					due: "#F59E0B",
+					invoiced: "#8B5CF6",
+					pending: "#3B82F6",
+					received: "#22C55E",
+					overdue: "#EF4444",
+					canceled: "#6B7280",
 				}
 			},
 			borderRadius: {
