@@ -16,6 +16,11 @@ import UnauthorizedPage from "./pages/UnauthorizedPage";
 
 // App Pages
 import DashboardPage from "./pages/DashboardPage";
+import ClientsPage from "./pages/ClientsPage";
+import TasksPage from "./pages/TasksPage";
+import PaymentsPage from "./pages/PaymentsPage";
+import NotificationsPage from "./pages/NotificationsPage";
+import SettingsPage from "./pages/SettingsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,7 +47,11 @@ const App = () => (
               </ProtectedRoute>
             }>
               <Route index element={<DashboardPage />} />
-              {/* Add other protected routes here */}
+              <Route path="/dashboard/clients" element={<ClientsPage />} />
+              <Route path="/dashboard/tasks" element={<TasksPage />} />
+              <Route path="/dashboard/payments" element={<PaymentsPage />} />
+              <Route path="/dashboard/notifications" element={<NotificationsPage />} />
+              <Route path="/dashboard/settings" element={<SettingsPage />} />
             </Route>
             
             {/* Catch-all route */}

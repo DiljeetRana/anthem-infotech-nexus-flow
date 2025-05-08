@@ -78,7 +78,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
           {isAdmin && (
             <NavLink
-              to="/clients"
+              to="/dashboard/clients"
               className={({ isActive }) => cn(
                 "flex items-center px-4 py-2 text-sm font-medium rounded-md",
                 isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
@@ -91,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           )}
 
           <NavLink
-            to="/tasks"
+            to="/dashboard/tasks"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
               isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
@@ -103,7 +103,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </NavLink>
 
           <NavLink
-            to="/payments"
+            to="/dashboard/payments"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
               isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
@@ -115,7 +115,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </NavLink>
 
           <NavLink
-            to="/notifications"
+            to="/dashboard/notifications"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
               isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
@@ -127,7 +127,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           </NavLink>
 
           <NavLink
-            to="/settings"
+            to="/dashboard/settings"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
               isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
