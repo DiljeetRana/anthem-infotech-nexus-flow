@@ -28,27 +28,27 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <aside
       className={cn(
-        "bg-anthem-dark text-white flex flex-col fixed inset-y-0 left-0 z-40 transition-all duration-300 ease-in-out",
+        "bg-sidebar text-sidebar-foreground flex flex-col fixed inset-y-0 left-0 z-40 transition-all duration-300 ease-in-out",
         isOpen ? "w-64" : "w-20",
         "md:relative"
       )}
     >
-      <div className="flex items-center justify-between h-16 px-4 border-b border-gray-700">
+      <div className="flex items-center justify-between h-16 px-4 border-b border-sidebar-border">
         <div className={cn("flex items-center", isOpen ? "justify-start" : "justify-center w-full")}>
           {isOpen ? (
             <div className="flex items-center">
               <img
-                src="/logo.png" // Replace with actual logo path
+                src="/lovable-uploads/5c0ef1a4-75b9-4184-8800-f85159142201.png"
                 alt="Anthem Infotech"
                 className="h-10"
               />
-              <span className="ml-2 text-lg font-semibold">Anthem Infotech</span>
             </div>
           ) : (
             <img
-              src="/logo.png" // Replace with actual logo or icon
+              src="/lovable-uploads/5c0ef1a4-75b9-4184-8800-f85159142201.png"
               alt="Anthem Infotech"
-              className="h-10"
+              className="h-9 w-9 object-contain"
+              style={{ objectPosition: "left" }}
             />
           )}
         </div>
@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
           variant="ghost" 
           size="icon" 
           onClick={toggleSidebar} 
-          className={cn("text-white hover:bg-gray-700", !isOpen && "hidden md:flex")}
+          className={cn("text-sidebar-foreground hover:bg-sidebar-accent", !isOpen && "hidden md:flex")}
         >
           <ChevronLeft className={cn("h-4 w-4 transition-transform", !isOpen && "rotate-180")} />
         </Button>
@@ -68,7 +68,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             to="/dashboard"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
-              isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700",
+              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
               !isOpen && "justify-center"
             )}
           >
@@ -81,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               to="/clients"
               className={({ isActive }) => cn(
                 "flex items-center px-4 py-2 text-sm font-medium rounded-md",
-                isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700",
+                isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                 !isOpen && "justify-center"
               )}
             >
@@ -94,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             to="/tasks"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
-              isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700",
+              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
               !isOpen && "justify-center"
             )}
           >
@@ -106,7 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             to="/payments"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
-              isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700",
+              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
               !isOpen && "justify-center"
             )}
           >
@@ -118,7 +118,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             to="/notifications"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
-              isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700",
+              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
               !isOpen && "justify-center"
             )}
           >
@@ -130,7 +130,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             to="/settings"
             className={({ isActive }) => cn(
               "flex items-center px-4 py-2 text-sm font-medium rounded-md",
-              isActive ? "bg-gray-700 text-white" : "text-gray-300 hover:bg-gray-700",
+              isActive ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
               !isOpen && "justify-center"
             )}
           >
@@ -140,12 +140,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         </nav>
       </div>
 
-      <div className="px-2 py-4 border-t border-gray-700">
+      <div className="px-2 py-4 border-t border-sidebar-border">
         <Button
           variant="ghost"
           onClick={logout}
           className={cn(
-            "flex items-center w-full px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 rounded-md",
+            "flex items-center w-full px-4 py-2 text-sm font-medium text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground rounded-md",
             !isOpen && "justify-center"
           )}
         >
