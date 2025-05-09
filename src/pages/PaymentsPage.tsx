@@ -1,12 +1,23 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import PaymentList from '@/components/payments/PaymentList';
+import AddPaymentDialog from '@/components/payments/AddPaymentDialog';
+import { Button } from '@/components/ui/button';
+import { Plus } from 'lucide-react';
 
 const PaymentsPage: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const [paymentToEdit, setPaymentToEdit] = useState<string | null>(null);
+
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold tracking-tight">Payments</h1>
+        <Button onClick={() => setOpen(true)} className="gap-1">
+          <Plus className="h-4 w-4" />
+          Add Payment
+        </Button>
       </div>
       <Card>
         <CardHeader>
@@ -16,9 +27,19 @@ const PaymentsPage: React.FC = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <p>Payment listing will be implemented here.</p>
+          <PaymentList onEdit={(id) => {
+            setPaymentToEdit(id);
+            setOpen(true);
+          }} />
         </CardContent>
       </Card>
+
+      <AddPaymentDialog
+        open={open}
+        onOpenChange={setOpen}
+        paymentId={paymentToEdit}
+        onPaymentSaved={() => setPaymentToEdit(null)}
+      />
     </div>
   );
 };
