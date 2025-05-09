@@ -44,7 +44,16 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, sidebarOpen }) => {
             <Menu className="h-5 w-5" />
           </Button>
         )}
-        <h1 className="text-xl font-semibold text-gray-800">Anthem Infotech</h1>
+        <div className="flex items-center">
+          {!isMobile && !sidebarOpen && (
+            <img
+              src="/lovable-uploads/6123bc56-fe6c-4d47-a531-d13782c5f5c0.png"
+              alt="Anthem Infotech"
+              className="h-8 mr-3"
+            />
+          )}
+          <h1 className="text-xl font-semibold text-gray-800">Anthem Infotech</h1>
+        </div>
       </div>
       
       <div className="flex items-center space-x-4">
@@ -72,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar, sidebarOpen }) => {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem asChild>
-              <a href="/settings">Settings</a>
+              <a href="/dashboard/settings">Settings</a>
             </DropdownMenuItem>
             <DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
           </DropdownMenuContent>
