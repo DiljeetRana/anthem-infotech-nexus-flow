@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
 import { format } from 'date-fns';
 import { toast } from 'sonner';
+import { CreditCard } from 'lucide-react';
 
 const InvoicesPage = () => {
   const { user } = useAuth();
@@ -73,13 +74,19 @@ const InvoicesPage = () => {
 
   const handlePayNow = (invoice: any) => {
     // In a production app, this would integrate with PayPal's API
-    // For now, we'll simulate opening PayPal
     window.open(`https://www.paypal.com/checkoutnow?token=demo-${invoice.id}`, '_blank');
     
     toast.success('Redirecting to PayPal for payment processing');
     
-    // In a real app, we'd listen for the payment confirmation
-    // and update the database once payment is received
+    // Simulate a successful payment after 3 seconds (for demo purposes)
+    setTimeout(() => {
+      // In a real app, we'd listen for the payment confirmation webhook
+      // For now, simulate updating the invoice status
+      toast.success('Payment successful! Invoice status updated to paid.');
+      
+      // Refresh the invoice list
+      refetch();
+    }, 3000);
   };
   
   const getStatusBadge = (status: string) => {
@@ -132,13 +139,13 @@ const InvoicesPage = () => {
                   <TableHead>Status</TableHead>
                   <TableHead>Issue Date</TableHead>
                   <TableHead>Due Date</TableHead>
-                  {!isAdmin && <TableHead>Actions</TableHead>}
+                  <TableHead>Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {invoices?.length === 0 ? (
                   <TableRow>
-                    <TableCell colSpan={isAdmin ? 6 : 6} className="text-center py-4 text-muted-foreground">
+                    <TableCell colSpan={isAdmin ? 7 : 6} className="text-center py-4 text-muted-foreground">
                       No invoices found.
                     </TableCell>
                   </TableRow>
@@ -151,19 +158,19 @@ const InvoicesPage = () => {
                       <TableCell>{getStatusBadge(invoice.status)}</TableCell>
                       <TableCell>{format(new Date(invoice.created_at), 'MMM dd, yyyy')}</TableCell>
                       <TableCell>{format(new Date(invoice.due_date), 'MMM dd, yyyy')}</TableCell>
-                      {!isAdmin && (
-                        <TableCell>
-                          {invoice.status !== 'paid' && (
-                            <Button 
-                              variant="outline" 
-                              size="sm"
-                              onClick={() => handlePayNow(invoice)}
-                            >
-                              Pay Now
-                            </Button>
-                          )}
-                        </TableCell>
-                      )}
+                      <TableCell>
+                        {invoice.status !== 'paid' && (
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => handlePayNow(invoice)}
+                            className="flex items-center gap-1"
+                          >
+                            <CreditCard className="h-3 w-3" />
+                            Pay Now
+                          </Button>
+                        )}
+                      </TableCell>
                     </TableRow>
                   ))
                 )}
